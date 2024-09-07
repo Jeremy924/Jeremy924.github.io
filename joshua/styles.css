@@ -1,0 +1,65 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 200px; /* Fixed width for the sidebar */
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: fixed; /* Keeps the sidebar fixed on the left */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Adds scrollbar if content exceeds viewport height */
+}
+
+.sidebar h1 {
+    font-size: 1.5em;
+    margin: 0 0 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #555;
+}
+
+/* Content styles */
+.content {
+    margin-left: 250px; /* Space for the sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Ensure content area does not overlap sidebar */
+}
+
+.content section {
+    margin-bottom: 40px;
+}
+
+.content h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
