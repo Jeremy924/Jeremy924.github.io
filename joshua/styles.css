@@ -1,6 +1,6 @@
 /* General styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,11 +12,12 @@ body {
 
 /* Sidebar styles */
 .sidebar {
-    width: 200px; /* Fixed width for the sidebar */
-    background-color: #333;
+    width: 225px; /* Fixed width for the sidebar */
+    background-color: #E84A27;
     color: white;
-    padding: 20px;
+    padding: 10px;
     position: fixed; /* Keeps the sidebar fixed on the left */
+    text-align: center;
     height: 100vh; /* Full viewport height */
     overflow-y: auto; /* Adds scrollbar if content exceeds viewport height */
 }
@@ -24,6 +25,10 @@ body {
 .sidebar h1 {
     font-size: 1.5em;
     margin: 0 0 20px;
+    padding: 10px;
+    background-color: #13294B; /* Blue background */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    border: .5px solid #ffffff; /* White border around the box */
 }
 
 .sidebar ul {
@@ -34,6 +39,10 @@ body {
 
 .sidebar ul li {
     margin-bottom: 10px;
+    border: .5px solid #ffffff; /* White border around the box */
+    border-radius: 8px; /* Rounded corners for the boxes */
+    background-color: #E84A27; /* Same color as sidebar background */
+    transition: background-color 0.5s; /* Smooth transition for background color change */
 }
 
 .sidebar ul li a {
@@ -45,7 +54,8 @@ body {
 }
 
 .sidebar ul li a:hover {
-    background-color: #555;
+    background-color: #13294B;
+    border-radius: 8px;
 }
 
 /* Content styles */
@@ -62,4 +72,105 @@ body {
 .content h2 {
     border-bottom: 2px solid #333;
     padding-bottom: 10px;
+}
+
+.resume-image {
+    width: 700px; /* You can change this value */
+    height: auto; /* Ensures the aspect ratio remains intact */
+}
+
+#gallery {
+    text-align: center; /* Centers the gallery heading */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Automatically adjusts the number of columns */
+    gap: 0px; /* Space between images */
+    padding: 0px;
+}
+
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%; /* Ensures images fit within their containers */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px; /* Optional: Adds rounded corners to images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow around images */
+    transition: transform 0.3s ease; /* Optional: Smooth transition effect */
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* Optional: Zooms in the image when hovered */
+}
+
+figcaption {
+    margin-top: 3px;
+    font-size: 14px;
+    color: #000000;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Logo positioning */
+.logo {
+    position: fixed;
+    left: 62.5px;
+    bottom: 20px; /* Adjust this value to control how far from the bottom the logo appears */
+    z-index: 1000; /* Ensures the logo is above other elements */
+    padding-left: 0px; /* Ensures the logo aligns with the sidebar */
+}
+
+.logo img {
+    width: 100px; /* Adjust the size of the logo */
+    height: auto;
+}
+
+/* Top navigation styles */
+.top-navigation {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.top-navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-navigation ul li {
+    display: inline-block;
+    margin-right: 30px;
+    border: .5px solid #ffffff; /* White border around each link box */
+    border-radius: 8px; /* Rounded corners for the boxes */
+    background-color: #E84A27; /* Same background color as the sidebar */
+    transition: background-color 0.5s; /* Smooth transition for background color change */
+}
+
+.top-navigation ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 8px; /* Rounded corners for the links */
+}
+
+.top-navigation ul li a:hover {
+    background-color: #13294B; /* Dark blue on hover */
+    border-radius: 8px; /* Ensures the rounded corners on hover */
+}
+
+/* Center the image and make it smaller */
+.image-container {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    margin-top: 20px; /* Optional: adds some space above the image */
+}
+
+.image-container img {
+    max-width: 200px; /* Adjust the size of the image */
+    height: auto; /* Keeps the aspect ratio */
+    border-radius: 10px; /* Optional: adds rounded corners */
 }
