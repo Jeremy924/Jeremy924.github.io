@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #555; /* Different color for the sidebar */
+    color: #fff;
+    padding: 1rem;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    background-color: #555; /* Match the sidebar color */
+    color: #fff;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+}
+
+.sidebar ul li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li.active a {
+    background-color: #777;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fff;
+    color: #333;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column; /* Ensure the image is below the text */
+    align-items: flex-start;
+}
+
+ul.timeline li {
+    display: flex;
+    flex-direction: column; /* Ensure the image is below the text */
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%; /* Make the boxes narrower */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul.timeline li .date {
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Add space between the date and the text */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
