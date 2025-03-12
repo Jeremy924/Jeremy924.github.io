@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RP-42 Software</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1 style="color: #DDD;">RP-42</h1>
     </header>
     <div class="container">
-    <nav class="sidebar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li class="active"><a href="software.html">Software</a></li>
-            <li><a href="hardware.html">Hardware</a></li>
-            <li><a href="bug_report.html">Report a bug/feature</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="software-status">
-            <h2>RP-42 Firmware</h2>
-            <p>Currently, the only tasks that the firmware performs is executing the program, running test code for the screen and keyboard, and running the CLI.
-                Source code for the firmware is available on Github <a href="https://github.com/Jeremy924/rp42-firmware">here</a>.
-            </p>
-            <h3>Downloads for RP-42 Firmware</h3>
+        <nav class="sidebar">
             <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="software.html">Software</a></li>
+                <li><a href="hardware.html">Hardware</a></li>
+                <li><a href="bug_report.html">Report a bug/feature</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="software-status">
+                <h2>RP-42 Firmware</h2>
+                <p>Currently, the only tasks that the firmware performs is executing the program, running test code for
+                    the screen and keyboard, and running the CLI.
+                    Source code for the firmware is available on Github <a
+                        href="https://github.com/Jeremy924/rp42-firmware">here</a>.
+                </p>
+                <h3>Downloads for RP-42 Firmware</h3>
+                <ul>
                     <li>
                         <span class="label">Development Version 0.0.5</span>
-                        <p>No download available</p>
+                        <p>No download available. API documentation: <a href="firmware_docs.html">documentation</a></p>
                         <p><b>This version is only for development</b><br>
                     </li>
-            </ul>
-            <h3>Goals</h3>
-            <ul>
-                <li>1. Move most IO control from the application to the firmware.</li>
-                <li>2. Implement FAT FS on the flash to simplify storing data and programs.</li>
-                <li>3. Allow multiple applications to be stored and executed by the calculator.</li>
-                <li>4. Improve USB functionality including accessing FAT FS and copying and pasting from PC</li>
-                <li>5. Create PC GUI to modifying the calculator. </li>
-            </ul>
-            <br>
-            <h2>Free42</h2>
-            <p>Free42 is an RPN calculator software that mimics the HP 42. Because it mimics the HP 42, the official HP 42 manual can be used as the manual for Free42.
-                <br>Free42 is open source, so the code and liscense can be found on GitHub <a href="https://github.com/Jeremy924/free42">here</a>. </p>
-            <h3>Downloads for Free42</h3>
-            <ul>
-                <li>
-                    <span class="label">Development Version 0.0.1 (compatible with firmware: 0.0.5)</span>
-                    <a href="https://github.com/Jeremy924/free42/releases/tag/development">Download</a><br>
-                    <p><b>This version is only for development</b><br>
-                        This version can perform basic operations. Cannot be turned off through software, must be unplugged. Cannot save state when power is off. Slow response time
-                        from buttons sometimes. Clock frequency is not dynamic. No annunciators. Compiled for debugging, not optimized.</p>
-                </li>
-            </ul>
-        </section>
-        <section id="future-plans">
-            <h2>Goals</h2>
-            <ul>
-                <li>1. Get all the functionality of Free42 to work on the calculator.</li>
-                <li>2. Design user-friendly installer to simplify installing code.</li>
-                <li>3. Optimize the software to minimize power consumption.</li>
-            </ul>
-        </section>
-    </main>
+                </ul>
+                <h3>Goals</h3>
+                <ul>
+                    <li><del>1. Move most IO control from the application to the firmware.</del></li>
+                    <li>2. Implement FAT FS on the flash to simplify storing data and programs.</li>
+                    <li>3. Allow multiple applications to be stored and executed by the calculator.</li>
+                    <li>4. Improve USB functionality including accessing FAT FS and copying and pasting from PC</li>
+                    <li>5. Create PC GUI to modifying the calculator. </li>
+                </ul>
+                <br>
+                <h2>Free42</h2>
+                <p>Free42 is an RPN calculator software that mimics the HP 42. Because it mimics the HP 42, the official
+                    HP 42 manual can be used as the manual for Free42.
+                    <br>Free42 is open source, so the code and liscense can be found on GitHub <a
+                        href="https://github.com/Jeremy924/free42">here</a>.
+                </p>
+                <h3>Downloads for Free42</h3>
+                <ul>
+                    <li>
+                        <span class="label">Development Version 0.0.1 (compatible with firmware: 0.0.5)</span>
+                        <a href="https://github.com/Jeremy924/free42/releases/tag/development">Download</a><br>
+                        <p><b>This version is only for development</b><br>
+                            This version can perform basic operations. Cannot be turned off through software, must be
+                            unplugged. Cannot save state when power is off. Slow response time
+                            from buttons sometimes. Clock frequency is not dynamic. No annunciators. Compiled for
+                            debugging, not optimized.</p>
+                    </li>
+                </ul>
+            </section>
+            <section id="future-plans">
+                <h2>Goals</h2>
+                <ul>
+                    <li>1. Get all the functionality of Free42 to work on the calculator.</li>
+                    <li>2. Design user-friendly installer to simplify installing code.</li>
+                    <li>3. Optimize the software to minimize power consumption.</li>
+                </ul>
+            </section>
+        </main>
     </div>
     <footer>
         <p>Made by Jeremy Leicht 2024-2025</p>
     </footer>
 </body>
+
 </html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RP-42 Firmware Documentation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1 style="color: #DDD;">RP-42</h1>
+  </header>
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="hardware.html">Hardware</a></li>
+        <li><a href="bug_report.html">Report a bug/feature</a></li>
+      </ul>
+    </nav>
+    <main style="width: 100%;">
+      <h2>Firmware Documentation</h2>
+      <h3>Making System Calls</h3>
+      <p>The first step to making a System Call is to load the opcode and arguments into the SYS_CALL_DATA structure.
+        The structure contains 3 arguments. <br><br>The first is the 16-bit op code which is from the chart below.
+        <br><br>The
+        second is
+        the argument
+        pointer. This may be treated as a pointer to the arguments or the argument itself, depending on what is listed
+        in the table. For example,
+        for the DRAW_LCD operation, the void* will be cast to a uint8_t* and dereferenced to get the data to draw. For
+        the PUSH_KEY operation, the void*
+        will be cast to a uint8_t and used as the argument for the function.<br><br>
+        The third argument for a system call is the return value. This value does not need to be set to anything by the
+        calling code,
+        but after performing the system call, it may contain the return value from the operation.<br>
+        The table below summarizes the SYS_CALL_DATA.
+      </p>
+      <table>
+        <caption>System Call Data Structure</caption>
+        <thead>
+          <th>Address</th>
+          <th>Size</th>
+          <th>Name</th>
+          <th>Data type</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0x20000000</td>
+            <td>2 bytes</td>
+            <td>Op code</td>
+            <td>uint16_t</td>
+          </tr>
+          <tr>
+            <td>0x20000002</td>
+            <td>4 bytes</td>
+            <td>Arguments</td>
+            <td>void*</td>
+          </tr>
+          <tr>
+            <td>0x20000006</td>
+            <td>4 bytes</td>
+            <td>Return value</td>
+            <td>uint32_t</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>After loading the data into the SYS_CALL_DATA structure, the system call can be executed with the following
+        assembly instruction.</p>
+      <table>
+        <td>__asm("SVC #0");</td>
+      </table>
+      </p>
+
+      <h2>Setting up project to make API calls</h2>
+      <p>First, the linker file must be updated to include the SYS_CALL_DATA structure so that it can always be found in
+        the same
+        spot. To do that, add the following line in the memory definitions.
+      <table>
+        <td> SYS_CALL_DATA (rw) : ORIGIN = 0x20000000, LENGTH = 10 </td>
+      </table>This will allocate 10 bytes that will always be at 0x20000000.<br><br>
+      To ensure that the linker loads the .SYS_CALL_DATA objects into this section, the following lines must be added
+      to the SECTIONS section.
+      <table>
+        <td> .SYS_CALL_DATA (NOLOAD) :<br>
+          {<br>
+          . = ALIGN(4);<br>
+          *(.SYS_CALL_DATA)<br>
+          . = ALIGN(4);<br>
+          } >SYS_CALL_DATA</td>
+      </table><br>
+      Next, define a structure to contain all the data for sys calls.
+      <table>
+        <td>#pragma pack(1)<br>
+          typedef struct {<br>
+          uint16_t command;<br>
+          void* args;<br>
+          uint32_t result;<br>
+          } SystemCallData;<br>
+          #pragma pack()</td>
+      </table>
+      <br>Define a object to pass arguments for system calls. Make sure that it is placed in the SYS_CALL_DATA
+      section by using attribute section(".SYS_CALL_DATA").
+      <table>
+        <td>SystemCallData __attribute__((section(".SYS_CALL_DATA"))) systemCallData;
+        </td>
+      </table>
+      </p>
+
+      <h3>Example System call</h3>
+      <table>
+        <caption>Using system call to draw to LCD</caption>
+        <td> systemCallData.args = frame; // the frame array contains the bytes to draw to the LCD<br>
+          systemCallData.command = 0x0012; // 0x0012 = DRAW_LCD<br>
+          __asm__("SVC #0"); // perform the sys call<br>
+          // DRAW_LCD has no return value, so nothing is needed afterward</td>
+      </table>
+
+      <p>This table summarizes the op codes available in the current firmware.</p>
+      <table>
+        <caption>Op Codes in Firmware 0.0.5b</caption>
+        <thead>
+          <tr>
+            <th>Op code</th>
+            <th>Operation name</th>
+            <th>Function</th>
+            <th>Argument</th>
+            <th>Returns</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0x0000</td>
+            <td>NOP</td>
+            <td>Does nothing. If a 32-bit value is passed in, then it will be passed back as the return value. For
+              testing purposes.</td>
+            <td>Optionally a 32-bit integer that will be returned</td>
+            <td>A 32-bit integer if one was passed in, otherwise nothing.</td>
+          </tr>
+          <tr>
+            <td>0x0001</td>
+            <td>GET_KEY</td>
+            <td>Gets the key currently being pressed by the user</td>
+            <td>None</td>
+            <td>(uint8_t) Returns the current key being pressed from 1 to 37 inclusive, or 255 if no key is being
+              pressed</td>
+          </tr>
+          <tr>
+            <td>0x0002</td>
+            <td>WA_KEY</td>
+            <td>Wait for key press. Blocks the application until a key is pressed.</td>
+            <td>None</td>
+            <td>(uint8_t) Returns the current key being pressed from 1 to 37 inclusive. If a key is currently being
+              pressed, then it will immediately return with that key.</td>
+          </tr>
+          <tr>
+            <td>0x003</td>
+            <td>PUSH_KEY</td>
+            <td>Simulates a key being pressed.</td>
+            <td>(uint8_t)Key to simulate being pressed from 1 to 37 inclusive.</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>0x0004</td>
+            <td>RELEASE_KEY</td>
+            <td>Simulates a key being released. </td>
+            <td>None</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>0x0005</td>
+            <td>CLEAR_KEY_QUEUE</td>
+            <td>Clears the key press queue</td>
+            <td>None</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>0x0010</td>
+            <td>LCD_ON</td>
+            <td>Turns the LCD on</td>
+            <td>None</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>0x0011</td>
+            <td>LCD_OFF</td>
+            <td>Turns the LCD off</td>
+            <td>None</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>0x0012</td>
+            <td>DRAW_LCD</td>
+            <td>Draws the given buffer to the LCD. </td>
+            <td>(uint8_t*) The buffer to draw to the LCD. It must be at least 132*4 bytes. It should be ordered left to
+              right, top to bottom</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>0x0013</td>
+            <td>CLEAR_LCD</td>
+            <td>Clears the LCD.</td>
+            <td>None</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>0x0018-0x001B</td>
+            <td>DRAW_PAGE[0-3]</td>
+            <td>Draws on part of the LCD. It should not exceed one page (132 bytes). </td>
+            <td>(uint8_t*) First byte indicates the start index. Second byte indicates number of bytes to draw. Next n
+              bytes are the bytes to draw. </td>
+          </tr>
+          <tr>
+            <td>0x0020</td>
+            <td>POWER_DOWN</td>
+            <td>Powers down the calculator. Assume that after powerdown, memory has been erased and program will be
+              reset</td>
+            <td>None</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>0x0030</td>
+            <td>GET_ERROR</td>
+            <td>Returns the error flags.</td>
+            <td>None</td>
+            <td>(uint32_t) the error flags.</td>
+          </tr>
+          <tr>
+            <td>0x0031</td>
+            <td>CLEAR_ERROR</td>
+            <td>Clears the flags specified by the argument. </td>
+            <td>(uint32_t) An integer that should be ANDed with the status flags.</td>
+            <td>(uint32_t) The updated status flags.</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Status Flags</h2>
+      <table>
+        <caption>Status Bits for Firmware 0.0.5b</caption>
+        <thead>
+          <tr>
+            <th>Bit</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0</td>
+            <td>Invalid op code.</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+</body>
+
+</html>
