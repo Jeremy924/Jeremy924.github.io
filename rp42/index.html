@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RP-42</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1 style="color: #DDD;">RP-42</h1>
     </header>
     <div class="container">
-    <nav class="sidebar">
-        <ul>
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="software.html">Software</a></li>
-            <li><a href="hardware.html">Hardware</a></li>
-            <li><a href="bug_report.html">Report a bug/feature</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="introduction">
-            <h2>What is RP-42</h2>
-            <p>RP-42 is a low cost calculator primarily designed to run Free42. </p>
-            <div style="text-align: center;">
-                <img src="images/rp42_0-0-5.jpg" width="300" alt="Calculator Image">
-            </div>
-        </section>
-        <section id="features">
-            <h2>Features</h2>
+        <nav class="sidebar">
             <ul>
-                <li>Full functionality of the HP42</li>
-                <li>8MB of flash memory to store Free42 programs and data and other applications</li>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="software.html">Software</a></li>
+                <li><a href="hardware.html">Hardware</a></li>
+                <li><a href="bug_report.html">Report a bug/feature</a></li>
             </ul>
-        </section>
-        <section id="dev_status">
-            <h2>Development Status</h2>
-            <h3>Software Status</h3>
-            <p>Version 0.0.1 was released on 1/22/2025. It can do basic operations,
-                however it is still missing many features required for Free42. 
-            </p>
-            <h3>Hardware Status</h3>
-            <p>Version 0.0.5-b is the latest hardware version. It is fully functional, however there are a few minor problems.
-            The pin used as input from the power button does not support wake-up from powerdown on the microcontroller which
-            means the lowest power mode possible is STOP2. The reset and BOOT0 buttons do not match the pads on the PCB which
-            means they cannot be used. 
-            </p>
-        </section>
-    </main>
+        </nav>
+        <main>
+            <section id="introduction">
+                <h2>What is RP-42</h2>
+                <p>RP-42 is a low cost calculator primarily designed to run Free42. </p>
+                <div style="text-align: center;">
+                    <img src="images/rp42_0-0-5.jpg" width="300" alt="Calculator Image">
+                </div>
+            </section>
+            <section id="features">
+                <h2>Features</h2>
+                <ul>
+                    <li>Full functionality of the HP42</li>
+                    <li>8MB of flash memory to store Free42 programs and data and other applications</li>
+                </ul>
+            </section>
+            <section id="dev_status">
+                <h2>Development Status</h2>
+                <h3>Software Status</h3>
+                <p>Version 0.0.1 was released on 1/22/2025. It can do basic operations,
+                    however it is still missing many features required for Free42.
+                </p>
+                <h3>Hardware Status</h3>
+                <p>Version 0.0.5-b is the latest hardware version. It is fully functional, however there are a few minor
+                    problems.
+                    The pin used as input from the power button does not support wake-up from powerdown on the
+                    microcontroller which
+                    means the lowest power mode possible is STOP2. The reset and BOOT0 buttons do not match the pads on
+                    the PCB which
+                    means they cannot be used.
+                </p>
+            </section>
+        </main>
     </div>
     <footer>
         <p>Made by Jeremy Leicht 2024-2025</p>
     </footer>
 </body>
+
 </html>
