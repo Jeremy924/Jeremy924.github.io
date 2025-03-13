@@ -1,0 +1,33 @@
+img0 - power on
+200mV levels
+GND - 3V from PSU
+Probe - 3V to MCU
+~44ms to stabilize power
+
+img1 - power off
+same set up as img0
+cursor shows half way voltage
+
+img2 - battery already on, plug in USB
+2V levels
+GND - GND
+PROBE - 3-5V (output from diode)
+~9.6us to stabilize
+
+img3 - battery already on, plug in USB
+1V levels
+GND - GND
+PROBE - 3V (to MCU)
+~42us to stabilize
+
+img4 - pwr perph on (purple) -> 3V perph(yellow)
+1V levels
+GND - GND
+YELLOW - 3VP
+PURPLE - PWR_PERPH
+
+img5 - pwr perph on (purple) -> 3V perph(yellow)
+1V levels
+GND - GND
+YELLOW - 3VP
+PURPLE - PWR_PERPH
