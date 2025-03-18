@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP-42 OS</title>
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 style="color: #DDD;">RP-42</h1>
+    </header>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="software.html">Software</a></li>
+                <li><a href="hardware.html">Hardware</a></li>
+                <li><a href="bug_report.html">Report a bug/feature</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="software-status">
+                <h2 id="firmware">RP-42 OS</h2>
+                <p>Currently, the only task that the RP-42 OS frontend performs is selecting between different programs
+                    to execute. </p><br><br>
+                <h3>OS 0.0.5 (latest version)</h3>
+                <ul>
+                    <li>RP-42 OS 0.0.5 can select between executing a hardware test, COM port interface, or the current
+                        application on the flash.
+                        0.0.5 does not support FAT FS, so only one application can be stored on the flash, with its
+                        reset
+                        vector stored in the first
+                        address in the flash.<br>
+                        <br>
+                        The program is selected by holding down a specific key while powering on the calculator.
+                        <ul>
+                            <li>
+                                <b>Default operation</b> Execute what is stored in flash. <br>0.0.5 does not verify that
+                                this is a
+                                valid program.
+                            </li>
+                            <li>
+                                <b>Top left key held down: Start the COM port iterface.</b> <a
+                                    href="comport_005.html">COM port
+                                    interface</a>
+                            </li>
+                            <li>
+                                <b>Second key from top left held down: start hardware test. </b><br>
+                                The hardware test can be used to test the screen and the buttons. Whenever a key is
+                                pressed,
+                                the key id corresponding to that key will be displayed on the screen. Whenever a key is
+                                released,
+                                255 will be displayed on the screen.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+        </main>
+    </div>
+    <footer>
+        <p>Made by Jeremy Leicht 2024-2025</p>
+    </footer>
+</body>
+
+</html>
