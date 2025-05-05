@@ -19,7 +19,7 @@
         <li><a href="index.html">Home</a></li>
         <li class="active"><a href="software.html">Software</a></li>
         <li><a href="hardware.html">Hardware</a></li>
-        <li><a href="bug_report.html">Report a bug/feature</a></li>
+        <li><a href="bug_report.html">Report a bug</a></li>
       </ul>
     </nav>
     <main style="width: 100%;">
@@ -235,6 +235,34 @@
             <td>Clears the flags specified by the argument. </td>
             <td>(uint32_t) An integer that should be ANDed with the status flags.</td>
             <td>(uint32_t) The updated status flags.</td>
+          </tr>
+          <tr>
+            <td>0x0040</td>
+            <td>DELAY</td>
+            <td>Delays for the given milliseconds. </td>
+            <td>(uint32_t) Time to delay for in milliseconds.</td>
+            <td>(void) Nothing</td>
+          </tr>
+          <tr>
+            <td>0x0041</td>
+            <td>DELAY_UNTIL</td>
+            <td>Delays for the given time or until a key is pressed. </td>
+            <td>(uint32_t) Time to delay for in milliseconds.</td>
+            <td>(uint32_t) 1=reached end of delay without key press; 0=key pressed during delay</td>
+          </tr>
+          <tr>
+            <td>0x0042</td>
+            <td>MILLIS</td>
+            <td>Returns the system time in milliseconds </td>
+            <td>(void) No parameters.</td>
+            <td>(uint32_t) Time since system started</td>
+          </tr>
+          <tr>
+            <td>0x0050</td>
+            <td>PASTE</td>
+            <td>Pastes the given text to the PC</td>
+            <td>(const char*) A pointer to the text to print. String must end in null character.</td>
+            <td>(void) Nothing</td>
           </tr>
         </tbody>
       </table>

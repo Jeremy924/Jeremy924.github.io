@@ -19,14 +19,54 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="software.html">Software</a></li>
                 <li class="active"><a href="hardware.html">Hardware</a></li>
-                <li><a href="bug_report.html">Report a bug/feature</a></li>
+                <li><a href="bug_report.html">Report a bug</a></li>
             </ul>
         </nav>
         <main>
             <section id="hardware">
                 <h2>Hardware</h2>
-                <p>Version 0.0.5 is fully functioning with a few minor hardware bugs which will be corrected in the next
-                    version.</p>
+                <p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>CPU</td>
+                            <td>Arm Cortex M4</td>
+                        </tr>
+                        <tr>
+                            <td>Max Clock Speed</td>
+                            <td>80MHz on USB Power</td>
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td>128KB, 20KB reserved for OS</td>
+                        </tr>
+                        <tr>
+                            <td>Storage</td>
+                            <td>8MB QSPI Flash with XIP at up to 80MHz</td>
+                        </tr>
+                        <tr>
+                            <td>File System</td>
+                            <td>FAT12</td>
+                        </tr>
+                        <tr>
+                            <td>USB</td>
+                            <td>USB OTG FS, can supply power instead of battery</td>
+                        </tr>
+                        <tr>
+                            <td>Battery</td>
+                            <td>CR2032</td>
+                        </tr>
+                        <tr>
+                            <td>Display</td>
+                            <td>Monochrome TFT LCD 132x32</td>
+                        </tr>
+                        <tr>
+                            <td>Dimensions</td>
+                            <td>110x65mm</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </p>
                 <h3>Hardware Bugs in 0.0.5</h3>
                 <ul>
                     <li>1. The MCU cannot enter powerdown mode through software because the power down button is not
@@ -40,8 +80,8 @@
                 <ul class="timeline">
                     <li><span class="date">07/06/2024</span>Started designing PCB</li>
                     <li><span class="date">07/29/2024</span>
-                        <p>Completed PCB 0.0.4, and ordered PCB through JLCPCB</p><img src="images/rp42_0-0-4.png"
-                            width="150" alt="0.0.4 calculator">
+                        <p>Completed PCB 0.0.4, and ordered PCB</p><img src="images/rp42_0-0-4.png" width="150"
+                            alt="0.0.4 calculator">
                     </li>
                     <li><span class="date">08/04/2024</span>Used Raspberry PI Zero 2W and ESP32-S3 to display Free42 on
                         the LCD screen used in the calculator</li>
