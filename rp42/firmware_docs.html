@@ -264,6 +264,36 @@
             <td>(const char*) A pointer to the text to print. String must end in null character.</td>
             <td>(void) Nothing</td>
           </tr>
+          <tr>
+            <td>0x0100</td>
+            <td>FOPEN</td>
+            <td>Opens the given file using the given flags.</td>
+            <td>(const FileOpenParams*) A pointer to the file open parameters.</td>
+            <td>(uint32_t) File handle or 0 if it could not open file</td>
+          </tr>
+          <tr>
+            <td>0x0101</td>
+            <td>FCLOSE</td>
+            <td>Closes the file identified by the given file handle</td>
+            <td>(uint32_t) The file handle.</td>
+            <td>(uiint32_t) result of attempting to open file</td>
+          </tr>
+          <tr>
+            <td>0x0110</td>
+            <td>FREAD</td>
+            <td>Reads from the given file</td>
+            <td>(FileRWParams*) Struct containing file handle, ptr to read buffer, length of read buffer, and bytes
+              read.</td>
+            <td>(uiint32_t) result of attempting to read from file</td>
+          </tr>
+          <tr>
+            <td>0x0111</td>
+            <td>FWRITE</td>
+            <td>Writes to the given file</td>
+            <td>(FileRWParams*) Struct containing file handle, ptr to write buffer, length of write buffer, and bytes
+              written.</td>
+            <td>(uiint32_t) result of attempting to write to file</td>
+          </tr>
         </tbody>
       </table>
       <h2>Status Flags</h2>
