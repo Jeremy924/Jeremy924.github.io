@@ -1,4 +1,8 @@
-[
+[    {
+        "version": "0.0.4",
+        "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42-0-0-4.bin",
+        "target": "0.0.6"
+    },
     {
         "version": "0.0.2",
         "url": "https://github.com/Jeremy924/free42/releases/download/development2/Free42-0-0-2.bin",
@@ -12,9 +16,4 @@
      "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42-0-0-3.bin",
      "target": "0.3"
     },
-    {
-        "version": "0.0.4",
-        "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42-0-0-4.bin",
-        "target": "0.0.6"
-    }
 ]
