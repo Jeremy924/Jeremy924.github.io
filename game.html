@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div>
+            <p id="score_text">Score: 0</p>
+            <p id="highscore_text">High Score: 0</p>
+            <button onclick="reset()">Reset</button>
+        </div>
+        <div id="frame" style="border-width: 3px; background-color: rgb(218, 218, 218); width: 780px"></div>
+    </body>
+    <style>
+        p {
+            font-family: 'Courier New', 'Courier New', Courier, monospace
+        }
+    </style>
+    <script>
+    const width  = 80;
+    const height = 30;
+    const frame = document.getElementById("frame");
+    const score_text = document.getElementById("score_text");
+    const highscore_text = document.getElementById("highscore_text");
+    const fill = '_';
+    let rank = 0;
+    let highscore = 0;
+    highscore_text.innerHTML = "High Score: " + highscore;
+    let score = 0;
+    let done_flag = false;
+    let   pos = [width / 2, height / 2];
+    let   enemies = [];
+    let spectator_mode = false;
+    if (spectator_mode) rank = 83 - 65;
+
+    let   ps = [];
+    const frame_data = new Array(height);
+
+    for (let w = 0; w < height; w++) {
+        frame_data[w] = new Array(width).fill(fill);
+        let p = document.createElement("p");
+        ps.push(p);
+        frame.appendChild(p);
+    }
+    frame_data[pos[1]][pos[0]] = String.fromCharCode(65 + rank);
+
+    load_enemies();
+    refresh();
+    
+
+    let steps = 0;
+    document.onkeydown = function(e) {
+        if (done_flag) return;
+        key = (e || window.event).keyCode;
+
+
+        let old_pos = [pos[0], pos[1]]
+        if (key == 37 || key == 65) pos[0]--;
+        else if (key == 39 || key == 68) pos[0]++;
+        else if (key == 38 || key == 87) pos[1]--;
+        else if (key == 40 || key == 83) pos[1]++;
+        if (pos[0] < 0 || pos[0] >= width) pos[0] = old_pos[0];
+        if (pos[1] < 0 || pos[1] >= height) pos[1] = old_pos[1];
+        frame_data[old_pos[1]][old_pos[0]] = fill;
+
+        if (frame_data[pos[1]][pos[0]] == '+') {
+            if (!spectator_mode)
+                rank++;
+        }
+
+        frame_data[pos[1]][pos[0]] = String.fromCharCode(65 + rank);
+
+        steps++;
+        if (steps % 5 == 0) {
+            let newx = (Math.floor(Math.random() * width));
+            let newy = (Math.floor(Math.random() * height));
+
+            if (Math.abs(newx - pos[0]) > 2 && Math.abs(newy - pos[1]) > 2)
+                enemies.push([newx, newy, 1, Math.random() * 1, Math.random() * 2, Math.random() * 5 + 5]);
+        }
+        if (steps % 10 == 0) {
+            let newx = (Math.floor(Math.random() * width));
+            let newy = (Math.floor(Math.random() * height));
+
+            if (Math.abs(newx - pos[0]) > 2 && Math.abs(newy - pos[1]) > 2)
+                frame_data[newy][newx] = '+';
+        }
+
+        load_enemies();
+        refresh();
+    }
+
+    function reset() {
+        enemies = [];
+        score = 0;
+        rank = 0;
+        score_text.innerHTML = "Score: 0";
+        pos = [width / 2, height / 2];
+        done_flag = false;
+
+        for (let w = 0; w < height; w++) {
+            frame_data[w] = new Array(width).fill(fill);
+        }
+
+        frame_data[pos[1]][pos[0]] = 'A';
+
+        load_enemies();
+        refresh();
+    }
+
+    function load_enemies() {
+        for (enemy of enemies) {
+            let old_pos = [enemy[0], enemy[1], enemy[2]];
+            frame_data[enemy[1]][enemy[0]] = fill;
+            let flip_sign = Math.sign(Math.random() * enemy[5] - enemy[4]);
+            if (flip_sign > -enemy[3] && flip_sign < 0) flip_sign = 0;
+            if (enemy[0] != pos[0] && enemy[1] != pos[1]) {
+                var which = Math.random() < 0.5;
+                if (which) {
+                    enemy[0] += Math.sign(pos[0] - enemy[0]) * flip_sign;
+                } else enemy[1] += Math.sign(pos[1] - enemy[1]) * flip_sign;
+            } else {
+                if (enemy[0] != pos[0]) enemy[0] += Math.sign(pos[0] - enemy[0]) * flip_sign;
+                else if (enemy[1] != pos[1]) enemy[1] += Math.sign(pos[1] - enemy[1]) * flip_sign;
+            }
+            if (enemy[0] < 0 || enemy[0] >= width) enemy[0] = old_pos[0];
+            if (enemy[1] < 0 || enemy[1] >= height) enemy[1] = old_pos[1];
+
+            if (pos[0] == enemy[0] && pos[1] == enemy[1]) {
+                if (spectator_mode) continue;
+
+                rank -= enemy[2];
+                if (rank >= 0) {
+                    enemies.splice(enemies.indexOf(enemy), 1);
+                    frame_data[enemy[1]][enemy[0]] = String.fromCharCode(65 + rank);
+                    score += enemy[2];
+                    score_text.innerHTML = "Score: " + score;
+                    continue;
+                } 
+                if (!spectator_mode) {
+                    frame_data[enemy[1]][enemy[0]] = '/';
+                    done();
+                }
+                return;
+            }
+            if (frame_data[enemy[1]][enemy[0]] != fill) {
+                if (frame_data[enemy[1]][enemy[0] == '%']) {
+                    score+=enemy[2];
+                    score_text.innerHTML = "Score: " + score;
+                    enemies.splice(enemies.indexOf(enemy), 1);
+                    frame_data[enemy[1]][enemy[0]] = fill;
+                    return;
+                }
+                if (frame_data[enemy[1]][enemy[0]] == '+') {
+                    enemy[2]++;
+                    frame_data[enemy[1]][enemy[0]] = enemy[2];
+                    continue;
+                }
+                let i = -1;
+                for (other of enemies) {
+                    i++;
+                    if (enemy !== other && enemy[0] == other[0] && enemy[1] == other[1]) {
+                        enemies.splice(i, 1);
+                        enemy[2]+= other[2];
+                        if (enemy[2] > 9) {
+                            enemies.splice(enemies.indexOf(enemy), 1);
+                            score += 10;
+                            score_text.innerHTML = "Score: " + score + " (+10 Bonus)";
+                            frame_data[enemy[1]][enemy[0]] = '%';
+                        } else {
+                            score++;
+                            score_text.innerHTML = "Score: " + score;
+                        }
+
+                        break;
+                    }
+                }
+            } else frame_data[enemy[1]][enemy[0]] = enemy[2];
+        }
+    }
+
+    function done() {
+        refresh();
+        done_flag = true;
+        score_text.innerHTML = "Game Over. Total Score: " + score;
+
+        if (score > highscore) {
+            score_text.innerHTML += ". New High Score!";
+            highscore = score;
+            highscore_text.innerHTML = "High Score: " + highscore;
+        }
+    }
+
+    function refresh() {
+        for (let w = 0; w < height; w++) {
+            ps[w].innerHTML = frame_data[w].join("");
+        }
+    }
+    </script>
+</html>
