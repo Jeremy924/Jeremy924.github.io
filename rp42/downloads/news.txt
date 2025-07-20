@@ -1,0 +1,14 @@
+RP42 Update 7/19/2025
+Firmware Version 0.11 will be available 7/20. Install with 'RP42CLI.py upgrade'
+
+New Firmware Features
+- Completely redesigned RP42 command line interface
+- Replaced frw tool with unlock and lock commands
+- Various bug fixes
+
+
+RP42CLI version 0.3 has been released
+- you already have 0.3 if you can see this message
+- Use 'RP42CLI.py news' to see the latest news
+- Update info will be displayed when running 'RP42CLI.py'
+
