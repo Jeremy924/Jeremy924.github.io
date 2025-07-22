@@ -1,1 +1,1 @@
-No CLI Updates Available. 
+No CLI Updates Available. See https://Jeremy924.github.io/rp42/cli-guide.html for more info.

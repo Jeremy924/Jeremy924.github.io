@@ -11,5 +11,5 @@ New Firmware Features
 RP42CLI version 0.3 has been released
 - you already have 0.3 if you can see this message
 - Use 'RP42CLI.py news' to see the latest news
-- Update info will be displayed when running 'RP42CLI.py'
+- CLI Update info will automatically be displayed when running 'RP42CLI.py'
 - Check for updates with the 'RP42CLI.py updatable' command
