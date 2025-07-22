@@ -139,7 +139,7 @@ def handle_updatable(args):
         if parsed['app_name'] == "firmware": firmware_version = str(parsed["version_major"]) + "." + str(parsed["version_minor"])
 
     if firmware_version == "":
-        print("\033[1;31mError: firmware version unknown\033[0m")
+        print("\033[1;31mError: firmware version unknown. Command will not work on firmware older than v. 0.11\033[0m")
         ser.write('echo on\n'.encode())
         return
     firmware_version = "0.2"
@@ -485,7 +485,7 @@ def main():
     parser.add_argument('--port', type=str, help='Specify the connection port.')
     subparsers = parser.add_subparsers(dest='command', required=True, help='Available commands')
 
-    parser_terminal = subparsers.add_parser('terminal', help='Connects to the calculator terminal.')
+    parser_terminal = subparsers.add_parser('terminal', help='Connects to the RP-42 terminal.')
     parser_terminal.set_defaults(func=handle_terminal)
 
     parser_news = subparsers.add_parser('news', help='Gets the latest info about RP42.')
