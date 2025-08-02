@@ -19,85 +19,12 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="software.html">Software</a></li>
                 <li class="active"><a href="hardware.html">Hardware</a></li>
-                <li><a href="bug_report.html">Report a bug</a></li>
+                <li><a href="bug_report.html">Report bug</a></li>
             </ul>
         </nav>
         <main>
-            <section id="hardware">
-                <h2>Hardware</h2>
-                <p>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>CPU</td>
-                            <td>Arm Cortex M4</td>
-                        </tr>
-                        <tr>
-                            <td>Max Clock Speed</td>
-                            <td>80MHz on USB Power</td>
-                        </tr>
-                        <tr>
-                            <td>RAM</td>
-                            <td>128KB, 20KB reserved for OS</td>
-                        </tr>
-                        <tr>
-                            <td>Storage</td>
-                            <td>8MB QSPI Flash with XIP at up to 80MHz</td>
-                        </tr>
-                        <tr>
-                            <td>File System</td>
-                            <td>FAT12</td>
-                        </tr>
-                        <tr>
-                            <td>USB</td>
-                            <td>USB OTG FS, can supply power instead of battery</td>
-                        </tr>
-                        <tr>
-                            <td>Battery</td>
-                            <td>CR2032</td>
-                        </tr>
-                        <tr>
-                            <td>Display</td>
-                            <td>Monochrome TFT LCD 132x32</td>
-                        </tr>
-                        <tr>
-                            <td>Dimensions</td>
-                            <td>110x65mm</td>
-                        </tr>
-                    </tbody>
-                </table>
-                </p>
-                <h3>Hardware Bugs in 0.0.5</h3>
-                <ul>
-                    <li>1. The MCU cannot enter powerdown mode through software because the power down button is not
-                        connected to a pin that supports wake-up from powerdown.</li>
-                    <li>2. The pads for the reset and BOOT0 buttons do not match the actual buttons, which makes them
-                        unusable.</li>
-                </ul>
-            </section>
-            <section id="dev-timeline">
-                <h2>Development Timeline</h2>
-                <ul class="timeline">
-                    <li><span class="date">07/06/2024</span>Started designing PCB</li>
-                    <li><span class="date">07/29/2024</span>
-                        <p>Completed PCB 0.0.4, and ordered PCB</p><img src="images/rp42_0-0-4.png" width="150"
-                            alt="0.0.4 calculator">
-                    </li>
-                    <li><span class="date">08/04/2024</span>Used Raspberry PI Zero 2W and ESP32-S3 to display Free42 on
-                        the LCD screen used in the calculator</li>
-                    <li><span class="date">08/05/2024</span>Began assembling and testing</li>
-                    <li><span class="date">08/11/2024</span>STM32 communicates through micro USB port for the first time
-                    </li>
-                    <li><span class="date">08/11/2024</span>Test code is executed on the microcontroller, showing that
-                        all buttons and the LCD are working correctly</li>
-                    <li><span class="date">08/21/2024</span>STM32 can read and write to Flash drive through QSPI
-                        interface</li>
-                    <li><span class="date">08/21/2024</span>Set up basic command line interface over USB VCP to make
-                        debugging easier, and created "frw" (flash read-write tool) to control flash</li>
-                    <li><span class="date">12/10/2024</span>Completed 0.0.5 and ordered PCB with SWD port</li>
-                    <li><span class="date">01/22/2025</span>Ran Free42 on RP42</li>
-                </ul>
-            </section>
+
+        </main>
     </div>
     <footer>
         <p>Made by Jeremy Leicht 2024-2025</p>
