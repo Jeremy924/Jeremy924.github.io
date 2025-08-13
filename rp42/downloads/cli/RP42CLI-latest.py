@@ -366,7 +366,7 @@ def install_binary(data: bytes, ser: serial.Serial, offset: int = 0, erase_comma
         print("Finalizing firmware installation, please wait...")
         time.sleep(5)
     else:  # App specific finalization
-        ser.write('progress 0 \nalert\nDone! Reset calculator\nlock\necho on\n'.encode())
+        ser.write('progress 0 \nalert\nDone! Resetting...\nlock\necho on\n'.encode())
         time.sleep(2)
         ser.write('bootmode 0\nreset\n'.encode())
 
