@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating to Firmware 0.12 - RP-42</title>
+    <style>
+        /* General Body and Layout Styles */
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        main {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            height: fit-content;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 12px 15px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .sidebar ul li.active a {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Blog Post Content Styling */
+        .blog-post {
+            background-color: #fff;
+            padding: 25px 40px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .blog-post h2 {
+            color: #333;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .post-meta {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 25px;
+        }
+
+        .blog-post p {
+            line-height: 1.7;
+            margin: 0 0 1.2em 0;
+        }
+
+        .blog-post a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-post ul {
+            padding-left: 20px;
+            line-height: 1.7;
+            margin-bottom: 1.2em;
+        }
+
+        .blog-post pre {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Menlo', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+
+        .blog-post code {
+            font-family: 'Menlo', 'Consolas', monospace;
+        }
+
+        .blog-post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1em 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>RP-42</h1>
+    </header>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <!-- Assuming your main page is index.html -->
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#software">Software</a></li>
+                <li><a href="index.html#hardware">Hardware</a></li>
+                <li><a href="index.html#bug-report">Report bug</a></li>
+            </ul>
+        </nav>
+        <main>
+            <article class="blog-post">
+                <h2>Updating to the latest Free42</h2>
+                <p class="post-meta">Published on August 13, 2025 by Jeremy Leicht</p>
+                <p>The process listed below is only necessary 1 time while updating from the old version to the latest.
+                    In the future,
+                    you will be able to simply run <code>RP42CLI upgrade</code> to upgrade the firmware to the latest,
+                    and <code>RP42CLI install Free42</code> to
+                    update Free42 to the latest free42.
+                </p>
+                <p>Because firmware 0.12 switches from using FRW to using unlock and lock commands,
+                    you will need to use the old installer to upgrade the firmware to the latest firmware.
+                </p>
+                <p>The old installer can be found <a
+                        href="https://jeremy924.github.io/rp42/downloads/cli/RP42CLI-0.2.py">here.</a></p>
+                <p>Simply download the installer, then run <code>python RP42CLI-0.2.py upgrade</code></p>
+                <p>This will automatically upgrade your firmware to 0.12.</p>
+                <p>After that, you need to use the new firmware to install the latest free42. </p>
+                <p>The new installer can be found <a
+                        href="C:\Users\Jerem\OneDrive\Documents\career\my_projects\Jeremy924.github.io\rp42\update-to-0.12.html">here.</a>
+                </p>
+                <p>The new installer uses app lists to track app updates, however the older installer does not update
+                    the app list, so the new installer will not know what is current is installed.</p>
+                <p>To fix this, just run <code>python RP42CLI-0.3.py upgrade</code> again. This will run through the
+                    normal upgrade process and update the app list.</p>
+                <p>Now, to install Free42, simply run <code>python RP42CLI-0.3.py install Free42</code>. This will
+                    automatically check what
+                    firmware is installed and download the latest version available for that firmware.</p>
+            </article>
+        </main>
+    </div>
+    <footer>
+        <p>Made by Jeremy Leicht 2024-2025</p>
+    </footer>
+
+</body>
+
+</html>
