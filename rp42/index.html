@@ -6,32 +6,215 @@
     <link rel="icon" href="favicon.svg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RP-42</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Body and Layout Styles */
+        body {
+            background-color: #f4f4f4;
+            /* Lighter background */
+            color: #333;
+            /* Darker text */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #fff;
+            /* White header */
+            padding: 10px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            /* Lighter border */
+        }
+
+        header h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        main {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #fff;
+            /* White footer */
+            border-top: 1px solid #ddd;
+            /* Lighter border */
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 12px 15px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .sidebar ul li.active a {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Content Section Styling */
+        section {
+            display: none;
+            /* Hidden by default, shown by JS */
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        section.visible {
+            display: block;
+        }
+
+        section h2,
+        section h3 {
+            color: #333;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        section a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        section a:hover {
+            text-decoration: underline;
+        }
+
+        section ul {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        /* Specific styles for download/bug report items */
+        .download-card,
+        .bug-report-item {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .download-card h4 {
+            margin: 0 0 10px 0;
+            color: #222;
+        }
+
+        .download-card p {
+            margin: 0 0 15px 0;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .download-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .version-tag {
+            background-color: #007BFF;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .bug-report-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .bug-report-item a {
+            background-color: #007BFF;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .bug-report-item a:hover {
+            background-color: #0056b3;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <h1 style="color: #DDD;">RP-42</h1>
+        <h1>RP-42</h1>
     </header>
     <div class="container">
         <nav class="sidebar">
-            <ul>
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="software.html">Software</a></li>
-                <li><a href="hardware.html">Hardware</a></li>
-                <li><a href="bug_report.html">Report a bug</a></li>
+            <ul id="main-nav">
+                <li class="active"><a href="#home">Home</a></li>
+                <li><a href="#software">Software</a></li>
+                <li><a href="#hardware">Hardware</a></li>
+                <li><a href="#bug-report">Report bug</a></li>
             </ul>
         </nav>
         <main>
-            <section id="introduction">
+            <!-- Home Section -->
+            <section id="home" class="visible">
                 <h2>What is RP-42</h2>
-                <p>RP-42 is a low cost calculator primarily designed to run Free42. </p>
-                <div style="text-align: center;">
-                    <img src="images/rp42_0-0-5.jpg" width="300" alt="Calculator Image">
+                <p>RP-42 is a low cost calculator primarily designed to run Free42.</p>
+                <div style="text-align: center">
+                    <img src="images/rp42_0-0-5.jpg" style="border-radius: 5px;"
+                        onerror="this.onerror=null;this.src='https://placehold.co/300x200/f4f4f4/333?text=Image+Not+Found';"
+                        width="300" alt="Calculator Image">
                 </div>
-            </section>
-            <section id="features">
-                <h2>Features</h2>
+                <h3>Features</h3>
                 <ul>
                     <li>Full functionality of the HP42 calculator</li>
                     <li>8MB of flash memory to store programs, data, and applications</li>
@@ -41,13 +224,134 @@
                     <li>Supports multiple Free42 states and downloading/uploading states over USB</li>
                 </ul>
             </section>
+
+            <!-- Software/Downloads Section -->
+            <section id="software">
+                <h2>Software & Downloads</h2>
+
+                <h3>Apps</h3>
+                <div class="download-card">
+                    <h4>Free42</h4>
+                    <p>A RPN scientific calculator based on the HP42.</p>
+                    <div class="download-footer">
+                        <span class="version-tag">v0.6</span>
+                        <a href="#">Learn More &rarr;</a>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px;">Firmware</h3>
+                <div class="download-card">
+                    <h4>RP-42 Firmware 0.11.1</h4>
+                    <p>Updated terminal interface, fixed bugs.</p>
+                    <div class="download-footer">
+                        <span class="version-tag">v0.11.1</span>
+                        <a href="#">Learn More &rarr;</a>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px;">Command Line Interface</h3>
+                <div class="download-card">
+                    <h4>RP-42 CLI Tool</h4>
+                    <p>A CLI for installing apps, upgrading firmware, and connecting to the terminal. Compatible with
+                        Windows, MacOS, and Linux.</p>
+                    <div class="download-footer">
+                        <span class="version-tag">v0.3</span>
+                        <a href="#">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hardware Section -->
+            <section id="hardware">
+                <h2>Hardware</h2>
+                <p>Information about the RP-42 hardware will be available here soon.</p>
+            </section>
+
+            <!-- Bug Report Section -->
+            <section id="bug-report">
+                <h2>Report a Bug</h2>
+                <h3>Hardware</h3>
+                <div class="bug-report-item">
+                    <span>Any hardware bugs/feature requests</span>
+                    <a href="https://github.com/Jeremy924/rp42-hardware/issues" target="_blank">Report Bug</a>
+                </div>
+
+                <h3 style="margin-top: 30px;">Software</h3>
+                <div class="bug-report-item">
+                    <span>Firmware bugs/feature requests</span>
+                    <a href="https://github.com/Jeremy924/rp42-firmware/issues" target="_blank">Report Bug</a>
+                </div>
+                <div class="bug-report-item">
+                    <span>Free42 for RP-42 bugs/feature requests</span>
+                    <a href="https://github.com/Jeremy924/free42/issues" target="_blank">Report Bug</a>
+                </div>
+
+                <h3 style="margin-top: 30px;">Other</h3>
+                <p>Questions and comments can be sent to <a
+                        href="mailto:jeremyleicht9@gmail.com">jeremyleicht9@gmail.com</a></p>
+            </section>
         </main>
     </div>
     <footer>
         <p>Made by Jeremy Leicht 2024-2025</p>
     </footer>
+
+    <script>
+        alert("This website is in the process of being updated");
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('#main-nav li a');
+            const sections = document.querySelectorAll('main section');
+
+            function showSection(hash) {
+                // Default to #home if hash is empty or invalid
+                const targetId = hash ? hash.substring(1) : 'home';
+                let sectionFound = false;
+
+                sections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.add('visible');
+                        sectionFound = true;
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+
+                // If no section matches, show home
+                if (!sectionFound) {
+                    document.getElementById('home').classList.add('visible');
+                }
+
+                // Update active class in navigation
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        link.parentElement.classList.add('active');
+                    } else {
+                        link.parentElement.classList.remove('active');
+                    }
+                });
+            }
+
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const targetHash = this.getAttribute('href');
+                    // Update URL hash for bookmarking/linking
+                    history.pushState(null, null, targetHash);
+                    showSection(targetHash);
+                });
+            });
+
+            // Show initial section based on URL hash or default to #home
+            showSection(window.location.hash);
+
+            // Handle back/forward browser button clicks
+            window.addEventListener('popstate', function () {
+                showSection(window.location.hash);
+            });
+        });
+    </script>
 </body>
-<script>
-    alert("This website is in the process of being updated");
-</script>
+
 </html>

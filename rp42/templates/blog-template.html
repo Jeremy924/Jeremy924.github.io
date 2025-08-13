@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - RP-42</title>
+    <style>
+        /* General Body and Layout Styles */
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        main {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            height: fit-content;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 12px 15px;
+            color: #555;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .sidebar ul li.active a {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Blog Post Content Styling */
+        .blog-post {
+            background-color: #fff;
+            padding: 25px 40px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .blog-post h2 {
+            color: #333;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2em;
+        }
+        
+        .post-meta {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 25px;
+        }
+
+        .blog-post p {
+            line-height: 1.7;
+            margin: 0 0 1.2em 0;
+        }
+
+        .blog-post a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-post ul {
+            padding-left: 20px;
+            line-height: 1.7;
+            margin-bottom: 1.2em;
+        }
+
+        .blog-post pre {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Menlo', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        
+        .blog-post code {
+            font-family: 'Menlo', 'Consolas', monospace;
+        }
+        
+        .blog-post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1em 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>RP-42</h1>
+    </header>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <!-- Assuming your main page is index.html -->
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#software">Software</a></li>
+                <li><a href="index.html#hardware">Hardware</a></li>
+                <li><a href="index.html#bug-report">Report bug</a></li>
+            </ul>
+        </nav>
+        <main>
+            <article class="blog-post">
+                <h2>New Update: Firmware v4.13.0 is Here!</h2>
+                <p class="post-meta">Published on August 7, 2025 by Jeremy Leicht</p>
+
+                <p>We're excited to announce the release of firmware version 4.13.0 for the RP-42. This update brings a host of performance improvements, bug fixes, and a few new features requested by the community. Thank you for your continued feedback!</p>
+                
+                <img src="https://placehold.co/600x300/ffffff/333333?text=Update+Banner" alt="Update Banner">
+
+                <h3>What's New?</h3>
+                <p>This version focuses on stability and enhancing the user experience. Here are the key highlights:</p>
+                <ul>
+                    <li><strong>Improved Battery Life:</strong> We've optimized power consumption, resulting in an average of 15% longer battery life during typical use.</li>
+                    <li><strong>Faster Boot Times:</strong> The calculator now starts up approximately 2 seconds faster.</li>
+                    <li><strong>New Math Function:</strong> Added the <code>FACTORIAL()</code> function directly accessible from the main menu.</li>
+                    <li><strong>USB File System Fix:</strong> Resolved a rare issue where the device would not be recognized when plugged into certain USB 3.0 hubs.</li>
+                </ul>
+
+                <h3>Using the New Function</h3>
+                <p>To use the new factorial function, you can access it via the command line interface or directly in your programs. Here's a quick example:</p>
+                <pre><code># Calculate 5!
+5
+FACTORIAL
+# Result: 120</code></pre>
+
+                <p>We believe these updates will make the RP-42 even more reliable and enjoyable to use. To get the latest firmware, head over to the <a href="index.html#software">Software</a> page and use the Universal CLI Tool to update your device.</p>
+            </article>
+        </main>
+    </div>
+    <footer>
+        <p>Made by Jeremy Leicht 2024-2025</p>
+    </footer>
+
+</body>
+
+</html>

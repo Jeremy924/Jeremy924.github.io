@@ -1,34 +1,56 @@
 [
     {
+        "version": "0.7",
+        "url": "https://github.com/Jeremy924/free42/releases/download/development/free42-rc_0.7.79.bin",
+        "publisher": "Jeremy924",
+        "publish_date": "8/12/2025",
+        "target": [
+            "0.12"
+        ]
+    },
+    {
         "version": "0.6",
         "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42-0-0-6.bin",
         "publisher": "Jeremy924",
         "publish_date": "7/21/2025",
-        "target": ["0.11", "0.9.1"]
+        "target": [
+            "0.11",
+            "0.9.1"
+        ]
     },
     {
         "version": "0.0.5",
         "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42-0-0-5.bin",
-        "target": ["0.8.1"]
+        "target": [
+            "0.8.1"
+        ]
     },
     {
         "version": "0.0.4",
         "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42-0-0-4.bin",
-        "target": ["0.0.6"]
+        "target": [
+            "0.0.6"
+        ]
     },
     {
         "version": "0.0.2",
         "url": "https://github.com/Jeremy924/free42/releases/download/development2/Free42-0-0-2.bin",
-        "target": ["0.2"]
+        "target": [
+            "0.2"
+        ]
     },
     {
         "version": "0.0.1",
         "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42-0-0-1.bin",
-        "target": ["0.1"]
+        "target": [
+            "0.1"
+        ]
     },
     {
         "version": "0.0.3",
         "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42-0-0-3.bin",
-        "target": ["0.3"]
+        "target": [
+            "0.3"
+        ]
     }
 ]

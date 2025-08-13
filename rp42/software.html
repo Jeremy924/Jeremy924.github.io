@@ -4,37 +4,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RP-42 Software</title>
-    <link rel="icon" href="favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <title>Downloads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .download-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-link.active {
+            background-color: #eef2ff;
+            /* indigo-100 */
+            color: #4f46e5;
+            /* indigo-700 */
+            font-weight: 600;
+        }
+
+        /* Style for active main navigation tab */
+        .main-nav-link.active {
+            color: #4f46e5;
+            /* indigo-700 */
+            border-bottom: 2px solid #4f46e5;
+        }
+    </style>
 </head>
 
-<body>
-    <header>
-        <h1 style="color: #DDD;">RP-42</h1>
-    </header>
-    <div class="container">
-        <nav class="sidebar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="software.html">Software</a></li>
-                <li><a href="hardware.html">Hardware</a></li>
-                <li><a href="bug_report.html">Report bug</a></li>
-            </ul>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Main Site Navigation Header -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Site Brand/Logo -->
+                <a href="index.html" class="text-xl font-bold text-gray-800">YourSite</a>
+
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li><a href="index.html" class="main-nav-link text-gray-600 hover:text-indigo-600 pb-1">Home</a>
+                    </li>
+                    <li class="active"><a href="software.html"
+                            class="main-nav-link text-indigo-600 font-semibold pb-1 border-b-2 border-indigo-600">Software</a>
+                    </li>
+                    <li><a href="hardware.html"
+                            class="main-nav-link text-gray-600 hover:text-indigo-600 pb-1">Hardware</a></li>
+                    <li><a href="bug_report.html" class="main-nav-link text-gray-600 hover:text-indigo-600 pb-1">Report
+                            Bug</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="main-menu-btn" class="text-gray-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <ul class="flex flex-col space-y-2">
+                    <li><a href="index.html"
+                            class="block py-2 px-4 text-sm text-gray-700 rounded hover:bg-gray-100">Home</a></li>
+                    <li class="active"><a href="software.html"
+                            class="block py-2 px-4 text-sm text-white bg-indigo-500 rounded font-semibold">Software</a>
+                    </li>
+                    <li><a href="hardware.html"
+                            class="block py-2 px-4 text-sm text-gray-700 rounded hover:bg-gray-100">Hardware</a></li>
+                    <li><a href="bug_report.html"
+                            class="block py-2 px-4 text-sm text-gray-700 rounded hover:bg-gray-100">Report Bug</a></li>
+                </ul>
+            </div>
         </nav>
-        <main>
-            <h1>Apps</h1>
-            <ul>
-                <li>
-                    <h3>Free42</h3>
-                    <p>Latest Version: 0.6</p>
-                </li>
-            </ul>
+    </header>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside id="sidebar"
+            class="w-64 bg-white shadow-md fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-30 md:top-0"
+            style="top: 72px;"> <!-- Adjust top for header height -->
+            <div class="flex items-center justify-center h-20 border-b md:hidden">
+                <h1 class="text-2xl font-bold text-indigo-600">Downloads</h1>
+            </div>
+            <nav class="mt-6 px-4">
+                <a href="#apps"
+                    class="sidebar-link flex items-center p-3 my-1 rounded-lg text-gray-700 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                    </svg>
+                    <span>Apps</span>
+                </a>
+                <a href="#firmware"
+                    class="sidebar-link flex items-center p-3 my-1 rounded-lg text-gray-700 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3M5.636 5.636l1.414 1.414m10.95 10.95l1.414 1.414M19.364 5.636l-1.414 1.414M6.05 19.95l-1.414 1.414M12 12a6 6 0 110-12 6 6 0 010 12z" />
+                    </svg>
+                    <span>Firmware</span>
+                </a>
+                <a href="#cli"
+                    class="sidebar-link flex items-center p-3 my-1 rounded-lg text-gray-700 hover:bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                    </svg>
+                    <span>CLI</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="flex-1">
+            <!-- Mobile Header for Sidebar Toggle -->
+            <div class="md:hidden flex justify-between items-center p-4 border-b bg-white sticky top-[72px] z-20">
+                <h1 class="text-xl font-bold text-gray-800">Page Sections</h1>
+                <button id="sidebar-menu-btn"
+                    class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                </header>
+
+                <div class="container mx-auto px-6 lg:px-8 py-12">
+                    <div class="space-y-16">
+                        <!-- Apps Section -->
+                        <div id="apps" class="pt-16 -mt-16">
+                            <h2 class="text-2xl font-bold border-b-2 border-indigo-500 pb-2 mb-6 text-gray-900">Apps
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                                <div
+                                    class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 download-item">
+                                    <h3 class="text-xl font-semibold text-gray-900">Desktop Controller</h3>
+                                    <p class="text-gray-600 mt-2 mb-4">A powerful desktop application to manage and
+                                        monitor your devices in real-time.</p>
+                                    <div class="flex justify-between items-center">
+                                        <span
+                                            class="text-sm font-medium text-indigo-600 bg-indigo-100 py-1 px-3 rounded-full">v2.5.1</span>
+                                        <a href="#"
+                                            class="text-sm font-semibold text-indigo-600 hover:text-indigo-800">Learn
+                                            More &rarr;</a>
+                                    </div>
+                                </div>
+                                <div
+                                    class="bg-white p-6 rounded-lg shadow-md transition-all duration-300 download-item">
+                                    <h3 class="text-xl font-semibold text-gray-900">Mobile Companion</h3>
+                                    <p class="text-gray-600 mt-2 mb-4">Stay connected on the go. Our mobile app for iOS
+                                        and Android.</p>
+                                    <div class="flex justify-between items-center">
+                                        <span
+                                            class="text-sm font-medium text-indigo-600 bg-indigo-100 py-1 px-3 rounded-full">v1.8.3</span>
+                                        <a href="#"
+                                            class="text-sm font-semibold text-indigo-600 hover:text-indigo-800">Learn
+                                            More &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Firmware Section -->
+                        <div id="firmware" class="pt-16 -mt-16">
+                            <h2 class="text-2xl font-bold border-b-2 border-teal-500 pb-2 mb-6 text-gray-900">Firmware
+                            </h2>
+                            <div class="space-y-4">
+                                <div
+                                    class="bg-white p-6 rounded-lg shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center transition-all duration-300 download-item">
+                                    <div class="mb-4 sm:mb-0">
+                                        <h3 class="text-xl font-semibold text-gray-900">Device Model X Firmware</h3>
+                                        <p class="text-gray-600 mt-1">Includes performance improvements and security
+                                            patches for Model X devices.</p>
+                                    </div>
+                                    <div class="flex items-center space-x-4 flex-shrink-0">
+                                        <span
+                                            class="text-sm font-medium text-teal-600 bg-teal-100 py-1 px-3 rounded-full">v4.12.0</span>
+                                        <a href="#"
+                                            class="text-sm font-semibold text-teal-600 hover:text-teal-800 whitespace-nowrap">Learn
+                                            More &rarr;</a>
+                                    </div>
+                                </div>
+                                <div
+                                    class="bg-white p-6 rounded-lg shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center transition-all duration-300 download-item">
+                                    <div class="mb-4 sm:mb-0">
+                                        <h3 class="text-xl font-semibold text-gray-900">Device Model Y Firmware</h3>
+                                        <p class="text-gray-600 mt-1">Critical update for all Model Y devices.
+                                            Introduces new energy-saving features.</p>
+                                    </div>
+                                    <div class="flex items-center space-x-4 flex-shrink-0">
+                                        <span
+                                            class="text-sm font-medium text-teal-600 bg-teal-100 py-1 px-3 rounded-full">v3.9.5</span>
+                                        <a href="#"
+                                            class="text-sm font-semibold text-teal-600 hover:text-teal-800 whitespace-nowrap">Learn
+                                            More &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Command Line Interface (CLI) Section -->
+                        <div id="cli" class="pt-16 -mt-16">
+                            <h2 class="text-2xl font-bold border-b-2 border-gray-700 pb-2 mb-6 text-gray-900">Command
+                                Line Interface</h2>
+                            <div
+                                class="bg-gray-800 text-white p-6 rounded-lg shadow-lg transition-all duration-300 download-item">
+                                <h3 class="text-xl font-semibold text-white">Universal CLI Tool</h3>
+                                <p class="text-gray-300 mt-2 mb-4">A cross-platform CLI for scripting, automation, and
+                                    advanced device management. Works on Windows, macOS, and Linux.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-mono bg-gray-700 py-1 px-3 rounded">v1.2.4</span>
+                                    <a href="#" class="text-sm font-semibold text-white hover:text-gray-300">Learn More
+                                        &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </main>
     </div>
-    <footer>
-        <p>Made by Jeremy Leicht 2024-2025</p>
-    </footer>
+
+    <script>
+        // Main mobile menu toggle
+        const mainMenuBtn = document.getElementById('main-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mainMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Sidebar mobile menu toggle
+        const sidebarMenuBtn = document.getElementById('sidebar-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        sidebarMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Highlight active sidebar link on scroll
+        const sections = document.querySelectorAll('div[id]');
+        const navLinks = document.querySelectorAll('.sidebar-link');
+        const observerOptions = {
+            root: null,
+            rootMargin: '-80px 0px -40% 0px', // Adjust top margin for sticky header
+            threshold: 0
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const link = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`);
+                if (entry.isIntersecting) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        sections.forEach(section => {
+            if (section.id) observer.observe(section);
+        });
+    </script>
 </body>
 
 </html>
