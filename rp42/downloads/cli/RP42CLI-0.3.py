@@ -488,12 +488,13 @@ def handle_legacy_upgrade(args):
 
     print("\n--- Legacy Upgrade Process Complete! ---")
 
+header_location = 'https://jeremy924.github.io/rp42/downloads/header0.3.1.txt'
 
 def main():
     """Main function to set up and parse arguments."""
     header = ''
     try:
-        header = '\n'.join(_get_text_from_internet('https://jeremy924.github.io/rp42/downloads/header0.3.txt'))
+        header = '\n'.join(_get_text_from_internet(header_location))
     except:
         pass
     parser = argparse.ArgumentParser(
