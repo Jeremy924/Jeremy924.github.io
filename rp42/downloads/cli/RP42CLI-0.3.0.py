@@ -504,7 +504,6 @@ def main():
     subparsers = parser.add_subparsers(dest='command', required=True, help='Available commands')
 
     parser_terminal = subparsers.add_parser('terminal', help='Connects to the RP-42 terminal.')
-    parser_terminal = subparsers.add_parser('terminal', help='Connects to the RP-42 terminal.')
     parser_terminal.set_defaults(func=handle_terminal)
 
     parser_news = subparsers.add_parser('news', help='Gets the latest info about RP42.')
