@@ -1,1 +1,2 @@
-No CLI Updates Available. See https://Jeremy924.github.io/rp42/cli-guide.html for more info.
+Update 0.3.1 available for download at https://Jeremy924.github.io/rp42/downloads/cli/RP42CLI-0.3.1.py. Not
+a required update.
