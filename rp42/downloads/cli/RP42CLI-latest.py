@@ -37,7 +37,7 @@ def _get_serial_connection(port_arg):
     if not port_to_use:
         ports = list_serial_ports()
         if not ports:
-            print("Error: No compatible RP-42 device found. Make sure device is connected and in docked mode (hold top left button while turning on).")
+            print("\033[1;31mError: No compatible RP-42 device found. Make sure device is connected and in docked mode (hold top left button while turning on).\033[0m")
             return None
         if len(ports) > 1:
             print('Available ports:', ports)
@@ -139,6 +139,7 @@ def handle_updatable(args):
         if parsed['app_name'] == "firmware": firmware_version = str(parsed["version_major"]) + "." + str(parsed["version_minor"])
 
     if firmware_version == "":
+        print("\033[1;31mError: firmware version unknown. Command will not work on firmware older than v. 0.11\033[0m")
         print("\033[1;31mError: firmware version unknown. Command will not work on firmware older than v. 0.11\033[0m")
         ser.write('echo on\n'.encode())
         return
@@ -254,19 +255,20 @@ def _get_data_from_url(json_url, item_name, item_version='latest'):
 def _get_app_data(app_name, app_version='latest', download=True):
     """Fetches app metadata and returns the binary data and final version string."""
     APPS_LIST_URL = "https://jeremy924.github.io/rp42/downloads/apps.json"
+    app_name = app_name.capitalize()
     try:
         with urllib.request.urlopen(APPS_LIST_URL) as response:
             apps_data = json.loads(response.read().decode('utf-8'))
         app_info_url = next((d[app_name] for d in apps_data if app_name in d), None)
         if not app_info_url:
-            print(f"Error: Software '{app_name}' not found in the application list.")
-            return None, None
+            print(f"\033[1;31mError: '{app_name}' application binary not available for download.\033[0m")
+            exit()
         if download:
             return _get_data_from_url(app_info_url, app_name, app_version)
         else: return (app_name, app_version)
     except URLError as e:
-        print(f"\nAn error occurred while fetching the app list: {e.reason}")
-        return None, None
+        print(f"\n\033[1;31mAn error occurred while fetching the app list: {e.reason}\033[0m")
+        exit()
 
 
 def handle_download(args):
@@ -414,7 +416,7 @@ def handle_install(args):
     if not app_data: print("Failed to get application data. Aborting."); return
 
     ser = _get_serial_connection(args.port)
-    if not ser: print("Could not establish serial connection. Aborting."); return
+    if not ser: print("\033[1;31mCould not establish serial connection. Aborting.\033[0m"); return
 
     if args.name is not None:
         ser.write(f'mkdir /AppData/{args.name}\n'.encode())
