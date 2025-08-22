@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RP-42 Software</title>
+    <title>RP-42 Hardware</title>
     <link rel="icon" href="favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,7 +23,119 @@
             </ul>
         </nav>
         <main>
-
+            <h3>Specifications</h3>
+            <h4>Screen</h4>
+            <table style="width: 50%">
+                <tr>
+                    <td><b>Resolution</b></td>
+                    <td>132x32 pixels</td>
+                </tr>
+                <tr>
+                    <td><b>Size</b></td>
+                    <td>1.9x0.5 inches</td>
+                </tr>
+                <tr>
+                    <td><b>Display Type</b></td>
+                    <td>STN, reflective</td>
+                </tr>
+            </table>
+            <h4>Power</h4>
+            <table style="width: 50%">
+                <tr>
+                    <td><b>Battery Type</b></td>
+                    <td>CR2032</td>
+                </tr>
+                <tr>
+                    <td><b>Battery Life</b></td>
+                    <td>Depends on usage, but with reasonable usage up to 6 months</td>
+                </tr>
+            </table>
+            <h4>Controller</h4>
+            <table style="width: 50%">
+                <tr>
+                    <td><b>Processor</b></td>
+                    <td>Arm Cortex M4</td>
+                </tr>
+                <tr>
+                    <td><b>Operating System</b></td>
+                    <td>RP-OS</td>
+                </tr>
+                <tr>
+                    <td><b>Clock Speed</b></td>
+                    <td>2MHz on battery, 80MHz on USB</td>
+                </tr>
+                <tr>
+                    <td><b>integral(0, 1, asin(x)) calculation time</b></td>
+                    <td>10s on battery, 1s on USB</td>
+                </tr>
+            </table>
+            <h4>Storage</h4>
+            <table style="width: 50%">
+                <tr>
+                    <td><b>Flash Size</b></td>
+                    <td>256Kb for OS, 8Mb for applications</td>
+                </tr>
+                <tr>
+                    <td><b>Filesystem</b></td>
+                    <td>FAT32 Filesystem</td>
+                </tr>
+                <tr>
+                    <td><b>Program space</b></td>
+                    <td>Up to 8Mb</td>
+                </tr>
+            </table>
+            <h3>Power Comparison</h3>
+            <table style="width: 50%">
+                <thead>
+                    <th></th>
+                    <th>TI-84 Plus</th>
+                    <th>RP-42 on battery</th>
+                    <th>RP-42 on USB</th>
+                </thead>
+                <tr>
+                    <td>Off power</td>
+                    <td>0.338 mW</td>
+                    <td>0.111 mW</td>
+                    <td>0.163 mW</td>
+                </tr>
+                <tr>
+                    <td>Standby power</td>
+                    <td>4.02 mW</td>
+                    <td>1.659 mW</td>
+                    <td>31.2 mW *</td>
+                </tr>
+                <tr>
+                    <td>sin(0.5) max power</td>
+                    <td>46.02 mW</td>
+                    <td>4.2 mW</td>
+                    <td>31.1 mW</td>
+                </tr>
+                <tr>
+                    <td>integral(0, 1, asin(x)) max power</td>
+                    <td>70.74 mW</td>
+                    <td>9.78 mW</td>
+                    <td>33.15 mW</td>
+                </tr>
+                <tr>
+                    <td>integral(0, 1, asin(x)) time</td>
+                    <td>7.25 s</td>
+                    <td>10.10 s</td>
+                    <td>1.06 s</td>
+                </tr>
+                <tr>
+                    <td>integral(0, 1, asin(x)) max energy</td>
+                    <td>513 mJ</td>
+                    <td>98.8 mJ</td>
+                    <td>35.2 mJ</td>
+                </tr>
+                <tr>
+                    <td>Voltage</td>
+                    <td>6 V</td>
+                    <td>3 V</td>
+                    <td>5 V</td>
+                </tr>
+            </table>
+            <p>* Standby power on USB will be lowered in a future update.</p>
         </main>
     </div>
     <footer>
