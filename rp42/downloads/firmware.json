@@ -1,4 +1,9 @@
 [
+    {
+    "version": "0.13",
+    "url": "https://github.com/Jeremy924/rp42-firmware/releases/download/development/rp-firmware-0.13.1.bin",
+    "publish_date": "8/24/2025"
+  },
   {
     "version": "0.12",
     "url": "https://github.com/Jeremy924/rp42-firmware/releases/download/development/firmware-rc_0.12.9.bin",
