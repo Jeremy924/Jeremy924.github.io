@@ -1,11 +1,21 @@
 [
     {
+        "version": "0.9",
+        "url": "https://github.com/Jeremy924/free42/releases/download/development/Free42_0.8.bin",
+        "publisher": "Jeremy924",
+        "publish_date": "8/24/2025",
+        "target": [
+            "0.14"
+        ]
+    },
+    {
         "version": "0.8",
         "url": "https://github.com/Jeremy924/free42/releases/download/development/free42-rc_0.7.83.bin",
         "publisher": "Jeremy924",
         "publish_date": "8/14/2025",
         "target": [
-            "0.12", "0.13"
+            "0.12",
+            "0.13"
         ]
     },
     {

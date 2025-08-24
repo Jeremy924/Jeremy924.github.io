@@ -1,1 +1,1 @@
-CLI 0.3.1. No updates available.
+CLI 0.3.1. CLI 0.3.2 is now available. Download it at https://Jeremy924.github.io/rp42/downloads/cli/RP42CLI-0.3.2.py. Fixes minor issues with terminal. 
