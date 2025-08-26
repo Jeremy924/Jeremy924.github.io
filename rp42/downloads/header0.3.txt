@@ -1,2 +1,1 @@
-Update 0.3.2 available for download at https://Jeremy924.github.io/rp42/downloads/cli/RP42CLI-0.3.2.py. Not
-a required update.
+Update 0.3.3 available for download at https://Jeremy924.github.io/rp42/downloads/cli/RP42CLI-0.3.3.py. Removes legacy-upgrade command and adds reset command.

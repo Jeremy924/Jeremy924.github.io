@@ -1,1 +1,1 @@
-No updates available.
+CLI update 0.3.3 is now available. Removed legacy-upgrade command and added reset command.
