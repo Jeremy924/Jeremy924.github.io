@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="icon" href="favicon.svg" type="image/x-icon">-->
+    <title>Jeremy Leicht - Tech</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/base.css">
+    <link rel="stylesheet" type="text/css" href="styles/tech.css">
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="tech.html">Technical</a>
+        <a href="qualifications.html">Qualifications</a>
+    </div>
+
+    <h1>Work Experience</h1>
+    <div style="display: flex;">
+        <div class="experience">
+            <h2 style="display: inline;"><a class="header" href="https://exiletech.com/">Exile Technologies</a></h2>
+            <p style="display: inline; margin-left: 10px;">Houston, TX</p>
+            <p>Software Engineer</p>
+            <p><i>May 2024 - Present</i></p>
+            <p>Colalborated with a team of 9 engineers in R&D to develop software for the Spyder 2 and Spyder X
+                printers, as
+                well as internal tools for tech support.
+            </p>
+            <p>Tasks:</p>
+            <ul>
+                <li>Debugged Spyder X and Spyder 2 code and implemented solutions for those bugs.</li>
+                <li>Added UI features to the spyder control panel using C# and WPF.</li>
+                <li>Enhanced the printing algorithm to increase maximum print size by up to 2.5 inches.</li>
+                <li>Designed and implemented an interlacing printing algorithm to reduce or eliminate print gaps.</li>
+                <li>Built a PHP/MySQL/Apache website for tech support to view printer diagnostic data.</li>
+                <li>Integrated dynamic charts and tablesl into the website to help tech support identify issues early.
+                </li>
+            </ul>
+            <ul class="skill_list">
+                <li class="skill_li">C#</li>
+                <li class="skill_li">WPF</li>
+                <li class="skill_li">PHP</li>
+                <li class="skill_li">MySQL</li>
+                <li class="skill_li">Linux</li>
+            </ul>
+        </div>
+        <img class="side-image" style="width: 600px; display: inline;border-radius: 10px;height:300px;margin: 20px;"
+            src="images/printer_overview.png">
+    </div>
+
+    <h1>Personal Projects</h1>
+    <div style="display: flex;">
+        <img class="side-image" style="width: 280px;border-radius: 10px;margin-left:10%;margin-right: 5%;"
+            src="images/rp42.jpg">
+        <div class="hardware">
+            <h2>RP-42</h2>
+            <p><a href="https://github.com/Jeremy924/rp42-hardware">https://github.com/Jeremy924/rp42-hardware</a></p>
+            <p>RP-42 is a scientific reverse polish notation calculator modeled after the HP42. RP-42 uses custom
+                hardware
+                with custom firmware to run an open source clone of the HP42, Free42.
+                RP-42 uses a custom PCB featuring a STM32L475 microcontroller, 8MB flash storage, 132x32 low power LCD
+                screen,
+                and dual power (usb or battery). </p>
+            <p><b>Features</b></p>
+            <ul>
+                <li><b>8MB QSPI Flash</b> formatted as an Fat32 filesystem with support for execution directly from the
+                    flash
+                    (XIP) with 80MHz QSPI communication.</li>
+                <li><b>Low power consumption</b> at 600uA in standby, 2mA when running, and 30uA when off when on
+                    battery.
+                </li>
+                <li><b>Micro USB FS port</b> for virtual serial communication, file system access and power. CPU will
+                    automatically increase clock to 80MHz when on USB power for improved performance.</li>
+                <li><b>132x32 reflective STN LCD display</b> for low power consumption and ease of viewing.</li>
+                <li><b>SWD debug port</b> for debugging user applications and firmware.</li>
+            </ul>
+
+            <ul class="skill_list">
+                <li class="skill_li">Altium</li>
+                <li class="skill_li">PCB Design</li>
+                <li class="skill_li">PCB Testing</li>
+                <li class="skill_li">Serial Communication</li>
+                <li class="skill_li">STM32</li>
+            </ul>
+        </div>
+    </div>
+    <div style="display: flex;">
+        <div class="firmware">
+            <h2>RP-42 Firmware</h2>
+            <p><a href="https://github.com/Jeremy924/rp42-firmware">https://github.com/Jeremy924/rp42-firmware</a></p>
+            <p>The operating system for RP-42 is RP-OS, which is a custom operating system designed for the RP-42. It
+                includes
+                support
+                for accessing the fat filesystem, drawing to the screen, reading from the keyboard, controlling timers,
+                and
+                a
+                terminal interface over USB. The OS controls all IO components so that applications are hardware
+                independent.
+            </p>
+            <p>Features</p>
+            <ul>
+                <li><b>Fat32 Filesystem interface</b> allows applications to access the 8Mb flash or standard
+                    input/output
+                    (through the com port) using builtin C/C++ file controls.</li>
+                <li><b>LCD drawing commands</b> for drawing text or raw pixel data to the screen including text with a
+                    custom
+                    font. </li>
+                <li><b>Keyboard scan commands</b> for waiting for user input or scanning the keyboard. RP-OS internally
+                    has
+                    a
+                    queue so that no key press is missed.</li>
+                <li><b>Built-in custom timer system</b> with 1ms precision. User applications can register or
+                    unregister custom timer callbacks with a single function call.</li>
+                <li><b>Terminal interface over USB</b> for configuring the calculator or reading/writing to standard
+                    out/in.
+                    Supports basic
+                    file commands like ls, cd, touch, etc. and other configuration commands.</li>
+            </ul>
+
+            <ul class="skill_list">
+                <li class="skill_li">C</li>
+                <li class="skill_li">C++</li>
+                <li class="skill_li">STM32</li>
+                <li class="skill_li">Serial Communication</li>
+            </ul>
+        </div>
+        <img class="side-image" src="images/firmware.jpg"
+            style="width: 300px;height: 250px;border-radius: 10px; margin: 50px;">
+    </div>
+
+    <div style="display: flex;">
+        <img class="side-image" style="width: 300px;height: 200px;margin: 50px; border-radius: 10px;"
+            src="images/integrate.jpg">
+        <div class="application">
+            <h2>RP-42 Application</h2>
+            <p>The main application that RP-42 was designed to run is <a
+                    href="https://thomasokken.com/free42/">Free42</a>,
+                which is an open source clone of the HP42. Free42 for RP-42 supports saving and loading multiple states
+                allowing
+                the user to switch between multiple calculator states. Free42 for RP-42 saves states to the file system
+                which
+                can be
+                accessed by connecting it to a computer over USB which allows users to upload states from their PC to
+                the
+                calculator. </p>
+            <p>Features</p>
+            <ul>
+                <li><b>All the features of the original HP42.</b></li>
+                <li><b>Saving and loading states</b> allows the user to switch between multiple configurations of the
+                    calculator. Uses the file explorer built into RP-OS.</li>
+                <li><b>Configuration menu</b> for configuring Free42 such as setting the auto-off time. </li>
+            </ul>
+
+            <ul class="skill_list">
+                <li class="skill_li">C++</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="display: flex;">
+        <div class="cli">
+            <h3>RP42 CLI</h3>
+            <p>RP42CLI is a command line interface for configuring RP-42, installing apps, and upgrading the firmware.
+            </p>
+            <p>Features</p>
+            <ul>
+                <li><b>Downloads and installs apps with a single command</b>. For example:
+                    <preg>RP42CLI install Free42</preg>
+                    would install Free42.
+                </li>
+                <li><b>Download and upgrade firmware with a single command</b>. No special operations have to be
+                    performed
+                    to
+                    install
+                    new firmware, all the user has to do is switch to install mode in the menu. <preg>RP42CLI upgrade
+                    </preg>
+                    would automatically
+                    download and install the latest published firmware.</li>
+                <li><b>Made with a single python script</b> to further simplify configuring the calculator.</li>
+                <li><b>Builtin RP-42 terminal access </b> so there is no need to install a tool like PuTTY to configure
+                    the
+                    calculator.</li>
+                <li><b>Updatable command</b> which automatically checks the currently installed app/firmware versions
+                    versus
+                    the
+                    latest published versions.</li>
+            </ul>
+
+            <ul class="skill_list">
+                <li class="skill_li">Python</li>
+            </ul>
+        </div>
+
+        <img class="side-image" style="width: 300px;height: 200px;margin: 50px;border-radius: 10px"
+            src="images/cli.png">
+    </div>
+
+    <h1>Clubs</h1>
+
+    <div style="display: flex;">
+        <img class="side-image" style="width: 250px; height: 250px;margin: 50px;border-radius: 10px;"
+            src="images/robot.jpg">
+        <div class="clubs">
+            <h2>Aggie Robotics - Team WHOOP5</h2>
+            <p>January 2024 - May 2025</p>
+            <p>Software Lead August 2024 - May 2025</p>
+            <p>Tasks</p>
+            <ul>
+                <li>Integrated <a href="https://github.com/UZ-SLAMLab/ORB_SLAM3">ORB SLAM3</a> with the current odometry
+                    system
+                    in an attempt to improve the accuracy of the robot.</li>
+                <li>Configured ROS2 on Raspberry Pi 5 to communicate between SLAM and serial communication nodes.</li>
+                <li>Developed a serial communication interface between the Pi and the robot controller using a USB com
+                    port.
+                </li>
+                <li>Collaboratively programmed C++ software components for robots competing in VEX U State and World
+                    Competitions.</li>
+            </ul>
+
+            <ul class="skill_list">
+                <li class="skill_li">C++</li>
+                <li class="skill_li">ROS2</li>
+                <li class="skill_li">Raspberry Pi</li>
+                <li class="skill_li">Teamwork</li>
+            </ul>
+        </div>
+    </div>
+
+    <h1>Courses</h1>
+
+    <div class="class">
+        <h2 style="display: inline;">Texas A&M University</h2>
+        <p style="display: inline;margin-left: 10px;">College Station, TX</p><br><br>
+        <p style="display: inline;">GPA: </p>
+        <p class="important_text" style="display: inline;">4.0</p><br><br>
+        <p style="display: inline;">Major: </p>
+        <p class="important_text" style="display: inline;">Computer Engineering</p><br><br>
+        <p style="display: inline;">Class:</p>
+        <p style="display: inline;" class="important_text">2027</p>
+    </div>
+
+    <div style="display: flex;">
+        <img class="side-image" src="images/tamu.jpg"
+            style="width: 300px;border-radius: 10px;height: 180px;margin: 50px;">
+        <div class="current_courses">
+            <h3>Current Courses (Fall 2025)</h3>
+            <p style="display: inline;margin-right: 10px;" class="important_text">CSCE 313</p>
+            <p style="display: inline;">Introduction to Computer Systems</p><br><br>
+            <p style="display: inline;margin-right: 10px;" class="important_text">CSCE 331</p>
+            <p style="display: inline;">Foundations of Software Engineering</p><br><br>
+            <p style="display: inline;margin-right: 10px;" class="important_text">ECEN 314</p>
+            <p style="display: inline;">Signals and Systems</p><br><br>
+            <p style="display: inline;margin-right: 10px;" class="important_text">ECEN 325</p>
+            <p style="display: inline;">Electronics</p>
+        </div>
+    </div>
+
+    <div class="completed_courses">
+        <h3>Completed Courses</h3>
+        <p style="display: inline;" class="important_text">CSCE 221</p>
+        <p style="display: inline;">Data structures and Algorithms</p><br><br>
+        <p style="display: inline;" class="important_text">CSCE 222</p>
+        <p style="display: inline;">Discrete Structures for Computing</p><br><br>
+        <p style="display: inline;" class="important_text">ECEN 214</p>
+        <p style="display: inline;">Electric Circuit Theory</p><br><br>
+        <p style="display: inline;" class="important_text">ECEN 248</p>
+        <p style="display: inline;">Intro to Digital Systems Design</p><br><br>
+        <p style="display: inline;" class="important_text">ECEN 350</p>
+        <p style="display: inline;">Computer Architecture and Design</p><br><br>
+        <p style="display: inline;" class="important_text">MATH 308</p>
+        <p style="display: inline;">Differiential Equations</p><br><br>
+        <p style="display: inline;" class="important_text">MATH 311</p>
+        <p style="display: inline;">Topics in Applied Mathematics 1</p><br><br>
+        <p style="display: inline;" class="important_text">STAT 211</p>
+        <p style="display: inline;">Principles of Statistics</p><br><br>
+    </div>
+</body>
+
+</html>

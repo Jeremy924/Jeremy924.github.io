@@ -1,0 +1,197 @@
+h1 {
+    margin-top: 100px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+a {
+    color: rgb(37, 0, 170);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.experience {
+    background-color: rgb(200, 213, 255);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 60%;
+    box-shadow: 5px 5px;
+}
+
+.experience:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.skill_list {
+    display: flex;
+    list-style-type: none;
+}
+
+.skill_li {
+    background-color: rgb(137, 145, 255);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.skill_li:hover {
+    transform: scale(1.2);
+}
+
+.hardware {
+    background-color: rgb(134, 157, 235);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 60%;
+    box-shadow: 5px 5px;
+}
+
+.hardware:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.class {
+    background-color: rgb(228, 234, 255);
+    border-radius: 10px;
+    padding: 10px;
+    width: 60%;
+    transition: 0.3s ease;
+    box-shadow: 5px 5px;
+}
+
+.class:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.firmware {
+    background-color: rgb(96, 132, 250);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 60%;
+    margin-top: 50px;
+    box-shadow: 5px 5px;
+}
+
+.firmware:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.important_text {
+    background-color: rgb(187, 189, 255);
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.important_text:hover {
+    transform: scale(1.1);
+}
+
+.application {
+    background-color: rgb(138, 165, 255);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 60%;
+    margin-top: 50px;
+    box-shadow: 5px 5px;
+}
+
+.application:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.completed_courses {
+    background-color: rgb(94, 131, 255);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 60%;
+    margin-top: 50px;
+    box-shadow: 5px 5px;
+}
+
+.completed_courses:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.current_courses {
+    background-color: rgb(157, 180, 255);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 60%;
+    margin-top: 50px;
+    box-shadow: 5px 5px;
+}
+
+
+.current_courses:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.cli {
+    background-color: rgb(171, 190, 252);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 60%;
+    margin-top: 50px;
+    box-shadow: 5px 5px;
+}
+
+preg {
+    background-color: rgb(174, 174, 255);
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 3px 5px;
+}
+
+.cli:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.clubs {
+    background-color: rgb(171, 190, 252);
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 60%;
+    margin-top: 20px;
+    box-shadow: 5px 5px;
+}
+
+.clubs:hover {
+    transform: scale(1.01);
+    box-shadow: 10px 10px;
+}
+
+.header {
+    color: black;
+}
+
+.side-image {
+    transition: 0.3s ease;
+}
+
+.side-image:hover {
+    transform: scale(1.03);
+}

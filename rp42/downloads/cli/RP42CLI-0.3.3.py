@@ -13,7 +13,6 @@ import serial
 from serial.serialutil import SerialException
 from serial.tools import list_ports
 
-
 def list_serial_ports():
     """ Lists serial port names and descriptions matching the device's VID and PID. """
     pid = 21156
