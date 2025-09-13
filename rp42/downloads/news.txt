@@ -1,2 +1,7 @@
-RP42 Update 8/14
-Free42 version 0.8 was published today. The only difference between 0.7 and 0.8 is 0.8 will automatically turn off after a minute.
+RP-42 Update 9/13
+Free42 v. 0.12 will be released today. The major feature for this update is importing programs using the "load program" item 
+in the menu. Exporting programs was disabled due to a bug, but will be fixed in the next update. Use the command
+"RP42CLI install Free42" to update Free42 to the latest version.
+
+Firmware v. 0.17 will be released today as well. This includes bug fixes and the underscore and dash characters were added to
+the font. Use the command "RP42CLI upgrade" to install the latest firmware.
