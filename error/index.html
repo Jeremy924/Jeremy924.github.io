@@ -40,6 +40,14 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
         /* View Styles */
         .view {
             display: none;
@@ -231,23 +239,29 @@
 
         <!-- View 1: Product Selection -->
         <div id="view-product" class="view active">
+            <h2>1 - Select Device</h2>
             <div class="product-list"></div>
         </div>
 
         <!-- View 2: Error Type Selection -->
         <div id="view-error-type" class="view">
             <button class="back-btn" onclick="goBack('view-product')">← Back</button>
-            <h2>Select Error Type</h2>
+            <h2>2 - Select Error Type</h2>
             <div class="error-types"></div>
         </div>
 
         <!-- View 3: Report Link -->
         <div id="view-report" class="view">
             <button class="back-btn" onclick="goBack('view-error-type')">← Back</button>
-            <h2>Report Your Error</h2>
+            <h2>3 - Report Your Error</h2>
             <div class="report-link">
                 <p>Click the link below to report the issue:</p>
                 <a id="report-url" href="#" target="_blank">Report Issue</a>
+                <p><br>Please provide as much information as possible to help diagnose the issue.
+                    Include the firmware version and application version, and what you were
+                    doing when the error occured. Also include any error codes that were displayed
+                    when the error occured.
+                </p>
             </div>
         </div>
     </div>
