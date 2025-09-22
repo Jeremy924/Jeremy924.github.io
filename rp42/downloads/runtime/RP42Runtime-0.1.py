@@ -55,10 +55,12 @@ while True:
             continue
 
         for key in next_line:
-            if key in '<^()':
+            if key in '<^()∠':
                 keyboard.press('shift')
-            keyboard.send(key)
-            if key in '<^()':
+            if key == '∠':
+                keyboard.send(',')
+            else: keyboard.send(key)
+            if key in '<^()∠':
                 keyboard.release('shift')
             time.sleep(0.03)
 

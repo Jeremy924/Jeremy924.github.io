@@ -1,0 +1,10 @@
+Free42 0.13
+- Click number to go to menu item without arrow keys
+- Copying and pasting using standard in/out instead of custom system calls
+- fix memory leak
+- hold top left buttons to copy and paste instead of using menu options
+
+firmware
+- USB reconnects after power cycle
+- Uses high speed mode when powered on while usb is connected
+- Setup standard in and out for programs to map to virtual com port
