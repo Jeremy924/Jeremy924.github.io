@@ -1,12 +1,10 @@
 [
     {
         "version": "1.1",
-        "url": "https://github.com/Jeremy924/free42/releases/download/development/free42_1.1.295.bin",
+        "url": "https://github.com/Jeremy924/free42/releases/download/release-1.1/free42_1.1.295.bin",
         "publisher": "Jeremy924",
-        "publish_date": "4/1/26",
+        "publish_date": "10/23/2026",
         "target": [
-            "0.20",
-            "0.21",
             "0.22"
         ]
     },
